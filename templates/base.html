@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KeyPortal</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><nav class="nav"><a class="brand" href="/">KeyPortal<span>.</span></a><div class="navright">
+{% if session.get('user_id') %}<form method="post" action="{{ url_for('logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="ghost" type="submit">Log out</button></form>{% endif %}
+</div></nav><main class="wrap">
+{% with messages = get_flashed_messages() %}{% if messages %}<div class="messages">{% for message in messages %}<p>{{ message }}</p>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}</main><footer>KeyPortal · Secure account and key management</footer></body></html>

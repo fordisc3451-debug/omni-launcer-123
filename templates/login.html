@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block content %}<section class="auth card"><div class="eyebrow">WELCOME BACK</div><h1>Sign in to KeyPortal</h1><p class="muted">Manage your account securely.</p>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><label>Username</label><input name="username" autocomplete="username" required maxlength="32"><label>Password</label><input type="password" name="password" autocomplete="current-password" required><button class="primary full">Log in</button></form>
+<p class="below">Have a registration key? <a href="{{ url_for('register') }}">Create an account</a></p></section>{% endblock %}
